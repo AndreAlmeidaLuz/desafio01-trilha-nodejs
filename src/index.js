@@ -99,7 +99,7 @@ app.patch("/todos/:id/done", checksExistsUserAccount, (request, response) => {
   const { user } = request;
   const { id } = request.params;
 
-  const checkTodo = user.todos.fin((todo) => todo.id === id);
+  const checkTodo = user.todos.find((todo) => todo.id === id);
 
   if (!checkTodo) {
     return response.status(404).json({ error: "Tarefa não existe" });
